@@ -14,8 +14,8 @@ const ProductList = async ({
   searchParams,
 }: {
   categoryId: string;
-  limit: number;
-  searchParams: any;
+  limit?: number;
+  searchParams?: any;
 }) => {
   const wixClient = await wixClientServer();
 

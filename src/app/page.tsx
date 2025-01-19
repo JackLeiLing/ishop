@@ -1,3 +1,4 @@
+// "use client";
 import Slider from "./components/Slider";
 import ProductList from "./components/ProductList";
 import Categories from "./components/Categories";
@@ -22,19 +23,21 @@ const HomePage = async () => {
 
   return (
     <div className="">
-      {/* <Slider /> */}
+      <Slider />
       <div className="mt-24 px4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <h1 className="text-2xl mb-2">Featured Products</h1>
-        {/* <Suspense fallback="Loading">
+        <Suspense fallback="Loading">
           <ProductList
             categoryId={process.env.BEST_SELLER_CATEGORY_ID || ""}
             limit={4}
           />
-        </Suspense> */}
+        </Suspense>
       </div>
       <div className="mt-24 px4  mb-12">
         <h1 className="text-2xl mb-2">Categories</h1>
-        <Categories />
+        <Suspense fallback="Loading category...">
+          <Categories />
+        </Suspense>
       </div>
       <div className="mt-24 px4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <h1 className="text-2xl mb-2">New Products</h1>
