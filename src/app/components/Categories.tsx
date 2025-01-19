@@ -20,6 +20,7 @@ const CategoryList = async () => {
                 src={category.media?.items[0]?.image?.url}
                 alt={category.name}
                 className="w-full h-full object-cover rounded-md"
+                sizes="50%"
               />
             </div>
             <h1 className="mt-8 font-light text-xl tracking-wide">
