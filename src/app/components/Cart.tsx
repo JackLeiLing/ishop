@@ -65,8 +65,8 @@ export default function Cart() {
           {/* Cart Bottom */}
           <div className="flex flex-col gap-4">
             <div className="flex justify-between items-center gap-4">
-              <span className="font-bold">Subtotal</span>
-              <span className="font-semibold">${cart.subtotal.amount}</span>
+              {/* <span className="font-bold">Subtotal</span>
+              <span className="font-semibold">${cart.sub</span> */}
             </div>
             <p className="text-sm">
               Shipping and taxes are calculated at checkout.
