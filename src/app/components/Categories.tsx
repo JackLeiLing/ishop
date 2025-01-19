@@ -15,12 +15,13 @@ const CategoryList = async () => {
             key={category._id}
             className="flex-shrink-0 w-full sm:w-1/2 md:w-1/4 lg:w-1/5 xl:w-1/6"
           >
-            <div className="relative bg-slate-100 w-full h-96">
+            <div className="relative bg-slate-100 w-full h-60">
               <Image
                 src={category.media?.items[0]?.image?.url}
                 alt={category.name}
                 className="w-full h-full object-cover rounded-md"
-                sizes="50%"
+                width={160}
+                height={120}
               />
             </div>
             <h1 className="mt-8 font-light text-xl tracking-wide">
