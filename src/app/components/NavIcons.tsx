@@ -20,7 +20,7 @@ export default function NavIcons() {
 
   useEffect(() => {
     getCart(wixClient);
-  }, [getCart]);
+  }, [getCart, wixClient]);
 
   const handleProfile = () => {
     if (!isLoggedIn) {

@@ -180,7 +180,7 @@ export default function Login() {
             className="text-sm underline cursor-pointer"
             onClick={() => setMode(MODE.REGISTER)}
           >
-            Don't have an account?
+            Do not have an account?
           </div>
         )}
 

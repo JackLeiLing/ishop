@@ -1,6 +1,7 @@
 import React from "react";
 import { wixClientServer } from "@/lib/wixClientServer";
 import Link from "next/link";
+import Image from "next/image";
 
 const CategoryList = async () => {
   const wixClient = await wixClientServer();
@@ -15,7 +16,7 @@ const CategoryList = async () => {
             className="flex-shrink-0 w-full sm:w-1/2 md:w-1/4 lg:w-1/5 xl:w-1/6"
           >
             <div className="relative bg-slate-100 w-full h-96">
-              <img
+              <Image
                 src={category.media?.items[0]?.image?.url}
                 alt={category.name}
                 className="w-full h-full object-cover rounded-md"
