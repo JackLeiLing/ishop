@@ -6,13 +6,21 @@ import UpdateProfileButton from "../components/UpdateProfileButton";
 import { updateUser } from "@/lib/actions";
 
 export default async function ProfilePage() {
-  const wixClient = await wixClientServer();
+  // const wixClient = await wixClientServer();
 
-  const isLoggedIn = await wixClient.auth.loggedIn();
-  if (!isLoggedIn) redirect("/login");
-  const user = await wixClient.members.getCurrentMember({
-    fieldsets: [members.Set.FULL],
-  });
+  // const isLoggedIn = await wixClient.auth.loggedIn();
+  // if (!isLoggedIn) redirect("/login");
+  // const user = await wixClient.members.getCurrentMember({
+  //   fieldsets: [members.Set.FULL],
+  // });
+
+  const user = {
+    member: {
+      profile: { nickname: "yan" },
+      loginEmail: "yan@email.com",
+      contactId: "fdsa",
+    },
+  };
 
   return (
     <div className="flex flex-col gap-3 justify-center items-center h-[calc(100vh-80px)] bg-gray-200">
