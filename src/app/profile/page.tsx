@@ -8,20 +8,24 @@ import { updateUser } from "@/lib/actions";
 export default async function ProfilePage() {
   const wixClient = await wixClientServer();
 
-  // const isLoggedIn = await wixClient.auth.loggedIn();
-  const isLoggedIn = true;
-  if (!isLoggedIn) return <div> Not Logged in!</div>;
+  const user = await wixClient.members.getCurrentMember({
+    fieldsets: [members.Set.FULL],
+  });
+
+  if (!user.member?.contactId) {
+    return <div className="">Not logged in!</div>;
+  }
   // const user = await wixClient.members.getCurrentMember({
   //   fieldsets: [members.Set.FULL],
   // });
 
-  const user = {
-    member: {
-      profile: { nickname: "yan" },
-      loginEmail: "yan@email.com",
-      contactId: "fdsa",
-    },
-  };
+  // const user = {
+  //   member: {
+  //     profile: { nickname: "yan" },
+  //     loginEmail: "yan@email.com",
+  //     contactId: "fdsa",
+  //   },
+  // };
 
   return (
     <div className="flex flex-col gap-3 justify-center items-center h-[calc(100vh-80px)] bg-gray-200">
