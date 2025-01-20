@@ -6,10 +6,10 @@ import UpdateProfileButton from "../components/UpdateProfileButton";
 import { updateUser } from "@/lib/actions";
 
 export default async function ProfilePage() {
-  // const wixClient = await wixClientServer();
+  const wixClient = await wixClientServer();
 
-  // const isLoggedIn = await wixClient.auth.loggedIn();
-  // if (!isLoggedIn) redirect("/login");
+  const isLoggedIn = await wixClient.auth.loggedIn();
+  if (!isLoggedIn) return <div> Not Logged in!</div>;
   // const user = await wixClient.members.getCurrentMember({
   //   fieldsets: [members.Set.FULL],
   // });
