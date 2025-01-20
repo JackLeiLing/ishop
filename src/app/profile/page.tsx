@@ -5,27 +5,24 @@ import React from "react";
 import UpdateProfileButton from "../components/UpdateProfileButton";
 import { updateUser } from "@/lib/actions";
 
-export default async function ProfilePage() {
+const ProfilePage = async () => {
   const wixClient = await wixClientServer();
 
-  const user = await wixClient.members.getCurrentMember({
-    fieldsets: [members.Set.FULL],
-  });
-
-  if (!user.member?.contactId) {
-    return <div className="">Not logged in!</div>;
-  }
   // const user = await wixClient.members.getCurrentMember({
   //   fieldsets: [members.Set.FULL],
   // });
 
-  // const user = {
-  //   member: {
-  //     profile: { nickname: "yan" },
-  //     loginEmail: "yan@email.com",
-  //     contactId: "fdsa",
-  //   },
-  // };
+  // if (!user.member?.contactId) {
+  //   return <div className="">Not logged in!</div>;
+  // }
+
+  const user = {
+    member: {
+      profile: { nickname: "yan" },
+      loginEmail: "yan@email.com",
+      contactId: "fdsa",
+    },
+  };
 
   return (
     <div className="flex flex-col gap-3 justify-center items-center h-[calc(100vh-80px)] bg-gray-200">
@@ -56,4 +53,6 @@ export default async function ProfilePage() {
       </form>
     </div>
   );
-}
+};
+
+export default ProfilePage;
