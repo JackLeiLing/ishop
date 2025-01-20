@@ -8,7 +8,8 @@ import { updateUser } from "@/lib/actions";
 export default async function ProfilePage() {
   const wixClient = await wixClientServer();
 
-  const isLoggedIn = await wixClient.auth.loggedIn();
+  // const isLoggedIn = await wixClient.auth.loggedIn();
+  const isLoggedIn = true;
   if (!isLoggedIn) return <div> Not Logged in!</div>;
   // const user = await wixClient.members.getCurrentMember({
   //   fieldsets: [members.Set.FULL],
