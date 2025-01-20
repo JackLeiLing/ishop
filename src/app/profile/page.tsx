@@ -25,6 +25,7 @@ export default async function ProfilePage() {
           hidden
           value={user.member?.contactId || ""}
           name="id"
+          readOnly
         />
         <div className="flex flex-col gap-3 items-left">
           <label className="text-sm text-gray-700" htmlFor="">
@@ -38,7 +39,7 @@ export default async function ProfilePage() {
           />
         </div>
 
-        <UpdateProfileButton />
+        {/* <UpdateProfileButton /> */}
       </form>
     </div>
   );
