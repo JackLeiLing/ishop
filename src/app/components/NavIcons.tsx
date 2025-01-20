@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Cart from "./Cart";
 import { useRouter } from "next/navigation";
@@ -18,8 +18,16 @@ export default function NavIcons() {
 
   const { counter, getCart } = useCartStore();
 
+  const [userName, setUserName] = useState("");
+
   useEffect(() => {
-    getCart(wixClient);
+    const fetchData = async () => {
+      await getCart(wixClient);
+      const res = await wixClient.members.getCurrentMember();
+      console.log(res);
+      setUserName(res.member?.profile?.nickname || "");
+    };
+    fetchData();
   }, [getCart, wixClient]);
 
   const handleProfile = () => {
@@ -28,6 +36,7 @@ export default function NavIcons() {
       router.push("/login");
     } else {
       setIsProfileOpen((prev) => !prev);
+      router.push("/profile");
     }
   };
 
@@ -64,7 +73,8 @@ export default function NavIcons() {
         // onClick={}
       />
       {isProfileOpen && (
-        <div className="absolute top-12 left-0 w-full rounded-md p-2 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-2 z-50">
+        <div className="absolute top-12 left-0 w-full rounded-md p-2 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-2 z-50 justify-center items-center bg-gray-100">
+          <p>{userName}</p>
           <button onClick={() => handleProfile()}>Profile</button>
           <button onClick={handleLogout}>Logout</button>
         </div>
