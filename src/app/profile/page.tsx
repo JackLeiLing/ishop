@@ -19,7 +19,7 @@ export default async function ProfilePage() {
       <h1 className="text-2xl">Hello {user.member?.profile?.nickname}</h1>
       <p>{user.member?.loginEmail}</p>
 
-      <form action={updateUser}>
+      <form>
         <input
           type="text"
           hidden
